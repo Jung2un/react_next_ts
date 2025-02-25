@@ -1,13 +1,26 @@
-import styles from "./page.module.css";
+import Head from 'next/head';
+import styles from './page.module.css'
+import type { NextPage } from 'next';
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <div className={styles.ctas}>init</div>
-      </main>
-      <footer className={styles.footer}>
-      </footer>
-    </div>
-  );
-}
+const Home: NextPage = () => {
+    return (
+        <div>
+            <Head>
+                <title>jungeun</title>
+            </Head>
+            <section className={styles.headingMd}>
+                <p>[jungeun Introduction]</p>
+                <p>(This is website)</p>
+            </section>
+            <section className={`${styles.headingMd} ${styles.pading1px}`}>
+                <h2 className={styles.headingLg}>Blog</h2>
+                <ul className={styles.list}>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </section>
+        </div>
+    );
+};
+
+export default Home;
