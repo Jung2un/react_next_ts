@@ -1,17 +1,44 @@
-.headingMd {
-  line-height: 1.5;
-  font-size: 1.2rem;
+/* 헤더 스타일 */
+.header {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(30 31 33);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
 }
-.headingLg {
-  margin: 1rem 0;
-  line-height: 1.4;
-  font-size: 1.5rem;
+
+.scrolled {
+  background-color: rgb(30 31 33 / 0.8);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.padding1px {
-  padding-top: 1px;
+
+.headerContent {
+  display: flex;
+  align-items: center;
 }
-.list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+
+.headerTitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mainContent {
+  margin-top: 80px;
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.h2000 {
+  height: 2000px;
 }
