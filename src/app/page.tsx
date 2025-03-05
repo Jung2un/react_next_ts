@@ -1,34 +1,28 @@
 "use client";
 
+import { useState } from "react";
 import Head from "next/head";
-import { useState, useEffect } from "react";
-import styles from "./page.module.css"; // CSS 모듈을 사용
+import styles from "./page.module.css";
+import Header from "@/components/Header";
+import LeftMenu from "@/components/LeftMenu";
 
 const Home = () => {
-    const [scrollY, setScrollY] = useState(0);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    const toggleMenu = () => {
+        setIsMenuOpen((prevState) => !prevState);
+    };
 
     return (
         <div>
             <Head>
-                <title>My Page</title>
+                <title>메인 페이지</title>
+                <meta name="main" content="메인페이지 입니다." />
             </Head>
 
-            <header className={`${styles.header} ${scrollY > 50 ? styles.scrolled : ""}`}>
-                <div className={styles.headerContent}>
-                    <h1 className={styles.headerTitle}>B</h1>
-                </div>
-            </header>
+            <Header />
+            <LeftMenu isMenuOpen={isMenuOpen} />
 
-            {/* left container 추가 */}
 
             <main className={styles.mainContent}>
                 <section className={styles.section}>
@@ -41,6 +35,8 @@ const Home = () => {
                     ))}
                 </div>
             </main>
+
+            <button onClick={toggleMenu}>Toggle Menu</button>
         </div>
     );
 };

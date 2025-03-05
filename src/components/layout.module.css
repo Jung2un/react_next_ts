@@ -1,0 +1,133 @@
+.leftMenu {
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    padding: 20px;
+    color: white;
+    display: flex;
+    position: fixed;
+    text-align: center;
+    flex-direction: column;
+    background-color: #292A2D;
+    justify-content: flex-start;
+    transition: width 0.3s ease;
+    z-index: 1000;
+}
+
+.menuList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menuList li {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.menuList li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .leftMenu {
+        width: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .mainContent {
+        margin-left: 0;
+    }
+
+    .leftMenu.open {
+        width: 200px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .leftMenu {
+        width: 0;
+    }
+
+    .mainContent {
+        margin-left: 0;
+    }
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(30 31 33);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 900;
+}
+
+.scrolled {
+    background-color: rgb(30 31 33 / 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+}
+
+.profileSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+
+.profileImage {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profileTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+}
+
+/* 연락처 정보 섹션 */
+.contactInfo {
+    margin-top: 15px;
+}
+
+/* GitHub 버튼 */
+.contactButton {
+    margin: 10px;
+    padding: 10px;
+    background-color: #444;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.contactButton:hover {
+    background-color: #555;
+}
+
+/* 연락처 텍스트 */
+.contactText {
+    color: white;
+    margin: 10px 0;
+    font-size: 13px;
+}
