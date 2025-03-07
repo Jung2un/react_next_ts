@@ -3,6 +3,7 @@
   padding: 20px;
   margin-left: 280px;
   transition: margin-left 0.3s ease;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .section {
