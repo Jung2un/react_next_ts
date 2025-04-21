@@ -1,0 +1,149 @@
+.leftMenu {
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    padding: 20px;
+    z-index: 1000;
+    color: white;
+    display: flex;
+    position: fixed;
+    text-align: center;
+    flex-direction: column;
+    background-color: #292A2D;
+    justify-content: flex-start;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.dark {
+    background-color: #292a2d;
+    color: #ededed;
+}
+
+.light {
+    background-image: linear-gradient(to left, #d1ddff, #a8a4b9);
+    color: #171717;
+}
+
+.menuList {
+    padding: 0;
+    list-style-type: none;
+}
+
+.menuList li {
+    margin: 25px 0;
+    font-size: 18px;
+}
+
+.menuList li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .leftMenu {
+        width: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .leftMenu.open {
+        width: 200px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .leftMenu {
+        width: 0;
+    }
+}
+
+.header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 900;
+    height: 60px;
+    padding: 0 20px;
+    display: flex;
+    position: fixed;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, box-shadow 0.3s;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: var(--background);
+
+}
+
+.scrolled {
+    background-color: var(--background);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.themeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.themeToggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+}
+
+.introSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+
+.nameSection {
+    display: flex;
+    place-items: center;
+}
+
+.profileImage {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.profileTitle {
+    margin: 0 0 0 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contactInfo {
+    margin-top: 15px;
+}
+
+.contactButton {
+    transition: background-color 0.3s ease;
+}
+
+.contactButton:hover {
+    background-color: #555;
+}
+
+.contactText {
+    margin: 10px 0;
+    font-size: 13px;
+}
