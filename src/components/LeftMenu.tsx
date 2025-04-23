@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import styles from "../app/layout.module.css";
+import styles from "../styles/layout.module.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -45,9 +45,9 @@ const LeftMenu: React.FC<LeftMenuProps> = ({ isMenuOpen, isDarkMode }) => {
 
             <ul className={styles.menuList}>
                 <ul className={styles.menuList}>
+                    <li><Link href="/resume">이력서</Link></li>
                     <li><Link href="/intro">자기소개</Link></li>
                     <li><Link href="/portfolio">포트폴리오</Link></li>
-                    <li><Link href="/resume">이력서</Link></li>
                 </ul>
             </ul>
         </div>

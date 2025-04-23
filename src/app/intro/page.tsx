@@ -1,11 +1,13 @@
 import React from "react";
-import Section from "@/components/Section";
+import styles from './intro.module.css';
 
 export default function IntroPage() {
     return (
-        <Section>
-            <h1>이정은</h1>
-            <p>Frontend Developer</p>
-        </Section>
+        <div className="main-content">
+            <div className={styles.header}>
+                <h1>이정은</h1>
+                <p>자기소개</p>
+            </div>
+        </div>
     );
 }
