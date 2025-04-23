@@ -29,6 +29,7 @@
   :root {
     --background: #1E1F21;
     --foreground: #ededed;
+    --boxcolor: rgba(175, 175, 175, 0.13);
   }
 }
 
@@ -55,6 +56,27 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.main-content {
+  position: relative;
+  width: 720px;
+  max-width: 100%;
+  /*margin: 0 auto;*/
+  padding: 100px 24px 0 24px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 769px) {
+  .main-content {
+    margin-left: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

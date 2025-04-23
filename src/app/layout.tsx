@@ -43,7 +43,7 @@ export default function RootLayout({
                 <div>
                     <LeftMenu isMenuOpen={isMenuOpen} isDarkMode={isDarkMode}/>
                 </div>
-                <div className={layout.flex1}>
+                <div className={layout.flex}>
                     {children}
                 </div>
             </div>
