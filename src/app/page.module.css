@@ -26,3 +26,15 @@
   display: flex;
   justify-content: center;
 }
+
+@media (min-width: 969px) {
+  .flex{
+    padding-left: 260px;
+  }
+}
+
+@media (max-width: 968px) {
+  .flex{
+    padding-left: 0;
+  }
+}

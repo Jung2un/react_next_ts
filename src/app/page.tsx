@@ -1,21 +1,25 @@
 "use client";
 
-import Head from "next/head";
+import React from "react";
+import ResumeSection from "@/app/components/ResumeSection";
+import IntroSection from "@/app/components/IntroSection";
+import PortfolioSection from "@/app/components/PortfolioSection";
 
 const Home = () => {
     return (
-        <div>
-            <Head>
-                <title>메인 페이지</title>
-                <meta name="main" content="메인페이지 입니다."/>
-            </Head>
+        <main>
+            <section id="resume">
+                <ResumeSection/>
+            </section>
 
-            <div className="main-content">
-                <h1>메인 페이지</h1>
-                <p></p>
-            </div>
+            <section id="intro">
+                <IntroSection/>
+            </section>
 
-        </div>
+            <section id="portfolio">
+                <PortfolioSection/>
+            </section>
+        </main>
     );
 };
 

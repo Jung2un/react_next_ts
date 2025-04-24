@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Header from "@/components/Header";
-import LeftMenu from "@/components/LeftMenu";
+import Header from "@/app/components/Header";
+import LeftMenu from "@/app/components/LeftMenu";
 import layout from "./page.module.css";
 import "./globals.css";
 

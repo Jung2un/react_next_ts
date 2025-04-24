@@ -40,7 +40,7 @@
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .leftMenu {
         width: 0;
         padding: 0;

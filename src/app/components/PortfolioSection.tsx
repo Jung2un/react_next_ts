@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PortfolioPage() {
+export default function PortfolioSection() {
     return (
         <div className="main-content">
             <h1>포트폴리오</h1>

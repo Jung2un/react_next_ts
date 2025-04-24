@@ -67,18 +67,6 @@ a {
   box-sizing: border-box;
 }
 
-@media (min-width: 769px) {
-  .main-content {
-    margin-left: 280px;
-  }
-}
-
-@media (max-width: 768px) {
-  .main-content {
-    margin-left: 0;
-  }
-}
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

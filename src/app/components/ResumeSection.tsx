@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './resume.module.css';
+import styles from './ResumeSection.module.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faJs} from "@fortawesome/free-brands-svg-icons/faJs";
 import {faReact} from "@fortawesome/free-brands-svg-icons/faReact";
@@ -7,7 +7,7 @@ import {faNodeJs} from "@fortawesome/free-brands-svg-icons/faNodeJs";
 import {faPython} from "@fortawesome/free-brands-svg-icons/faPython";
 
 
-export default function IntroPage() {
+export default function ResumeSection() {
     return (
         <div className="main-content">
             <div className={styles.header}>

@@ -1,7 +1,7 @@
 import React from "react";
-import styles from './intro.module.css';
+import styles from './IntroSection.module.css';
 
-export default function IntroPage() {
+export default function IntroSection() {
     return (
         <div className="main-content">
             <div className={styles.header}>
