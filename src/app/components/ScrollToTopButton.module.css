@@ -1,0 +1,15 @@
+.scrollToTop {
+    right: 30px;
+    bottom: 30px;
+    border: none;
+    z-index: 1000;
+    font-size: 18px;
+    cursor: pointer;
+    position: fixed;
+    padding: 10px 14px;
+    border-radius: 50%;
+    color: var(--foreground);
+    transition: opacity 0.3s ease;
+    background-color: transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

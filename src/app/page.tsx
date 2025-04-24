@@ -4,22 +4,25 @@ import React from "react";
 import ResumeSection from "@/app/components/ResumeSection";
 import IntroSection from "@/app/components/IntroSection";
 import PortfolioSection from "@/app/components/PortfolioSection";
+import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 
 const Home = () => {
     return (
-        <main>
+        <div className="main-content">
             <section id="resume">
-                <ResumeSection/>
+                <ResumeSection />
             </section>
 
             <section id="intro">
-                <IntroSection/>
+                <IntroSection />
             </section>
 
             <section id="portfolio">
-                <PortfolioSection/>
+                <PortfolioSection />
             </section>
-        </main>
+
+            <ScrollToTopButton />
+        </div>
     );
 };
 

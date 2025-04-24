@@ -13,7 +13,7 @@
 /*}*/
 
 .pretend{
-  font-family: "Pretendard-Regular", sans-serif;
+  font-family: "Pretendard-Regular", sans-serif !important;
 }
 
 .mainLayout{

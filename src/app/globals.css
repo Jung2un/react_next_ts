@@ -1,7 +1,7 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*:root {*/
+/*  --foreground: #ffffff;*/
+/*  --background: #1E1F21;*/
+/*}*/
 
 @font-face {
   font-family: "Pretendard-Regular";
@@ -27,8 +27,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1E1F21;
-    --foreground: #ededed;
+    --foreground: #171717;
+    --background: #ededed;
     --boxcolor: rgba(175, 175, 175, 0.13);
   }
 }
@@ -37,6 +37,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -59,12 +60,16 @@ a {
 }
 
 .main-content {
-  position: relative;
   width: 720px;
+  margin: 0 auto;
   max-width: 100%;
-  /*margin: 0 auto;*/
-  padding: 100px 24px 0 24px;
+  position: relative;
   box-sizing: border-box;
+  padding: 100px 24px 0 24px;
+}
+
+.scroll-offset {
+  scroll-margin-top: 65px;
 }
 
 @media (prefers-color-scheme: dark) {

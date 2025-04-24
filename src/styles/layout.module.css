@@ -10,13 +10,13 @@
     position: fixed;
     text-align: center;
     flex-direction: column;
-    background-color: #292A2D;
+    background-color: #1e1f21;
     justify-content: flex-start;
     transition: background 0.3s, box-shadow 0.3s;
 }
 
 .dark {
-    background-color: #292a2d;
+    background-color: #1e1f21;
     color: #ededed;
 }
 
@@ -133,17 +133,39 @@
 
 .contactInfo {
     margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .contactButton {
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
 }
 
-.contactButton:hover {
-    background-color: #555;
+.emailText {
+    position: absolute;
+    top: -20px;
+    left: 120%;
+    z-index: 10;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    background-color: #444;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.contactText {
-    margin: 10px 0;
-    font-size: 13px;
+.emailText::after {
+    content: "";
+    position: absolute;
+    top: 95%;
+    left: -3px;
+    transform: translateY(-50%) rotate(-45deg);
+    width: 10px;
+    height: 10px;
+    background-color: #444;
+    clip-path: polygon(0 50%, 80% 0, 100% 100%);
 }

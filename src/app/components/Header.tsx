@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
     return (
         <header className={`${styles.header} ${scrollY > 50 ? styles.scrolled : ""}`}>
             <button className={styles.themeToggle} onClick={toggleDarkMode}>
-                {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+                {isDarkMode ? <FaMoon size={20} /> : <FaSun size={20} />}
             </button>
         </header>
     );
