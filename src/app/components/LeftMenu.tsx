@@ -74,10 +74,11 @@ const LeftMenu: React.FC<LeftMenuProps> = ({ isMenuOpen, isDarkMode }) => {
 
             <ul className={styles.menuList}>
                 <li><a href="#career">이력</a></li>
-                <li><a href="#projects">프로젝트</a></li>
                 <li><a href="#skills">기술</a></li>
-                <li><a href="#edu-cert">학력 & 자격</a></li>
-                <li><a href="#training">교육</a></li>
+                <li><a href="#projects">프로젝트</a></li>
+                <li><a href="#portfolio">포트폴리오</a></li>
+                <li><a href="#edu-cert">학력</a></li>
+                {/*<li><a href="#training">교육</a></li>*/}
             </ul>
         </div>
     );

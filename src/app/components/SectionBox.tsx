@@ -11,7 +11,8 @@ const titleToId: Record<string, string> = {
     "이력": "career",
     "프로젝트": "projects",
     "기술": "skills",
-    "학력 & 자격": "edu-cert",
+    "포트폴리오": "portfolio",
+    "학력": "edu-cert",
     "교육": "training",
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './ResumeSection.module.css';
+import SectionBox from "@/app/components/SectionBox";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faJs} from "@fortawesome/free-brands-svg-icons/faJs";
 import {faFigma} from "@fortawesome/free-brands-svg-icons/faFigma";
@@ -7,7 +8,7 @@ import {faReact} from "@fortawesome/free-brands-svg-icons/faReact";
 import {faNodeJs} from "@fortawesome/free-brands-svg-icons/faNodeJs";
 import {faPython} from "@fortawesome/free-brands-svg-icons/faPython";
 import {faGitlab} from "@fortawesome/free-brands-svg-icons/faGitlab";
-import SectionBox from "@/app/components/SectionBox";
+import WeatherPortfolioModal from "@/app/portfolio/weather/page";
 
 
 export default function ResumeSection() {
@@ -153,6 +154,37 @@ export default function ResumeSection() {
                 </div>
             </div>
             </SectionBox>
+            <SectionBox title="포트폴리오" addClass={styles.portfolio}>
+                <div className={styles.collection}>
+                    {/* 포폴1 */}
+                    <div className={styles.card}>
+                        {/* <img src="/img.png" alt="" className={styles.cardImg} /> */}
+                        <div className={styles.cardContent}>
+                            <h4>☀️ 포폴1</h4>
+                            <div className={styles.tags}>
+                                <span className={styles.pink}>Next.js</span>
+                                <span className={styles.blue}>TypeScript</span>
+                            </div>
+
+                            <WeatherPortfolioModal />
+                        </div>
+                    </div>
+
+                    {/* 포폴2 */}
+                    <div className={styles.card}>
+                        {/*<img src="/img.png" alt="" className={styles.cardImg} />*/}
+                        <div className={styles.cardContent}>
+                            <h4>🖼 포폴2</h4>
+                            <div className={styles.tags}>
+                                <span className={styles.pink}>Next.js</span>
+                                <span className={styles.blue}>TypeScript</span>
+                            </div>
+                            {/*<a href="#" className={styles.link}>이동 →</a>*/}
+                        </div>
+                    </div>
+                </div>
+            </SectionBox>
+
             <SectionBox title="학력 & 자격">
             <div>
                 <p>🎓 한국폴리텍대학 서울강서캠퍼스 (2021 - 2023)</p>
