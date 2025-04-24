@@ -13,7 +13,7 @@
 /*}*/
 
 .pretend{
-  font-family: "Pretendard-Regular", sans-serif;
+  font-family: "Pretendard-Regular", sans-serif !important;
 }
 
 .mainLayout{
@@ -25,4 +25,16 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+@media (min-width: 969px) {
+  .flex{
+    padding-left: 260px;
+  }
+}
+
+@media (max-width: 968px) {
+  .flex{
+    padding-left: 0;
+  }
 }

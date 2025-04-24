@@ -1,0 +1,141 @@
+.header {
+    gap: 10px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.highlight {
+    color: var(--foreground);
+    font-weight: 600;
+    background: linear-gradient(to top, rgba(97, 182, 250, 0.4) 40%, transparent 50%);
+}
+
+.title {
+    display: inline-block;
+    position: relative;
+    font-weight: 600;
+}
+
+.title::before {
+    content: "";
+    padding-left: 0.3rem;
+}
+
+.title::after {
+    content: "";
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0.1em;
+    height: 0.6em;
+    padding-right: .3rem;
+    background-color: rgba(124, 77, 255, 0.4);
+}
+
+.box {
+    gap: 8px;
+    width: 100%;
+    display: flex;
+    margin: 20px 0;
+    line-height: 1.7;
+    border-radius: 4px;
+    padding: 16px 25px 16px 12px;
+    background-color: transparent;
+    border: 1px solid var(--boxcolor);
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    visibility: visible;
+    border-bottom: 1px solid rgba(175, 175, 175, 0.13);
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.list {
+    gap: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.company {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.period {
+    color: #888;
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.flexColumn {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.stackGroup {
+    margin-bottom: 1rem;
+}
+
+.stackTitle {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.stack {
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.spanBox {
+    gap: 6px;
+    display: flex;
+    color: #100f0f;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    align-items: center;
+    background: rgba(222, 218, 218, 0.6);
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.ml5 {
+    margin-left: 5px;
+}
+
+.ml15 {
+    margin-left: 15px;
+}
+
+.ml27 {
+    margin-left: 27px;
+}
+
+.mr3 {
+    margin-right: 3px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mg5 {
+    margin: 0 5px;
+}

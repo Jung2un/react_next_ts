@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Header from "@/components/Header";
-import LeftMenu from "@/components/LeftMenu";
+import Header from "@/app/components/Header";
+import LeftMenu from "@/app/components/LeftMenu";
 import layout from "./page.module.css";
 import "./globals.css";
+import {ToastContainer} from "react-toastify";
 
 export default function RootLayout({
                                        children,
@@ -20,8 +21,8 @@ export default function RootLayout({
         setIsDarkMode(newMode);
         localStorage.setItem("theme", newMode ? "dark" : "light");
 
-        document.documentElement.style.setProperty("--background", newMode ? "#1E1F21" : "#ffffff");
-        document.documentElement.style.setProperty("--foreground", newMode ? "#ededed" : "#171717");
+        document.documentElement.style.setProperty("--background", newMode ? "#ededed" : "rgba(41, 42, 45, 0.87)");
+        document.documentElement.style.setProperty("--foreground", newMode ? "#1E1F21" : "#ededed");
     };
 
     // 로컬 스토리지에서 다크모드 상태 불러오기
@@ -29,8 +30,8 @@ export default function RootLayout({
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme === "dark") {
             setIsDarkMode(true);
-            document.documentElement.style.setProperty("--background", "#1E1F21");
-            document.documentElement.style.setProperty("--foreground", "#ededed");
+            document.documentElement.style.setProperty("--background", "#ededed");
+            document.documentElement.style.setProperty("--foreground", "#1E1F21");
         }
     }, []);
 
@@ -46,6 +47,7 @@ export default function RootLayout({
                 <div className={layout.flex}>
                     {children}
                 </div>
+                <ToastContainer position="top-right" hideProgressBar autoClose={1000}/>
             </div>
             </body>
         </html>
