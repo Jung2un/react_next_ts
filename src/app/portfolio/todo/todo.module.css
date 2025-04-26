@@ -1,0 +1,119 @@
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #111827;
+}
+
+.inputWrapper {
+    display: flex;
+    margin: 1.5rem 0;
+    position: relative;
+    align-items: center;
+}
+
+.inputIcon {
+    right: 16px;
+    color: #a0aec0;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.input {
+    flex: 1;
+    border: none;
+    outline: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+    color: var(--foreground);
+    background-color: transparent;
+    transition: border-color 0.3s;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 0.53rem 2rem 0.53rem 0.05rem;
+}
+
+.input:focus {
+    border-bottom: 2px solid #90cdf4;
+}
+
+.todoList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.todoItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--background);
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+
+.todoItem:hover {
+    transform: translateY(-2px);
+}
+
+.todoItem span {
+    color: var(--foreground);
+}
+
+.todoLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.todoLabel input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+    border-radius: 6px;
+    background: #bfc4d2;
+    -webkit-appearance: none;
+    border: 1px solid #d1d5db;
+}
+
+.todoLabel input[type="checkbox"]:checked {
+    background: #bfc4d2;
+    border: 1px solid #bfc4d2;
+}
+
+.todoLabel input[type="checkbox"]:checked::after {
+    content: '✔';
+    top: -2px;
+    left: 2px;
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    color: rgba(41, 42, 45, 0.87);
+}
+
+.deleteButton {
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    border: none;
+    color: #a0aec0;
+    border-radius: 6px;
+    transition: opacity 0.2s;
+    background-color: transparent;
+}
+
+.todoItem:hover .deleteButton {
+    opacity: 1;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #00030a;
+}

@@ -1,7 +1,21 @@
-/*:root {*/
-/*  --foreground: #ffffff;*/
-/*  --background: #1E1F21;*/
-/*}*/
+:root {
+  --foreground: #ffffff;
+  --background: #1E1F21;
+}
+
+body.light {
+  --foreground: #171717;
+  --background: #ededed;
+}
+
+body.dark {
+  --foreground: #ffffff;
+  --background: rgba(41, 42, 45, 0.87);
+}
+
+body.ReactModal__Body--open.dark {
+  --background: #18181b;
+}
 
 @font-face {
   font-family: "Pretendard-Regular";
@@ -72,14 +86,12 @@ a {
   scroll-margin-top: 65px;
 }
 
+.scroll-lock {
+  overflow: hidden;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
-
-body.ReactModal__Body--open {
-  width: 100%;
-  position: fixed;
-  overflow: hidden !important;
 }

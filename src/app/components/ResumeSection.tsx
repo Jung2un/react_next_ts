@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from './ResumeSection.module.css';
 import SectionBox from "@/app/components/SectionBox";
+import WeatherModal from "@/app/portfolio/weather/page";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faJs} from "@fortawesome/free-brands-svg-icons/faJs";
 import {faFigma} from "@fortawesome/free-brands-svg-icons/faFigma";
@@ -8,10 +9,13 @@ import {faReact} from "@fortawesome/free-brands-svg-icons/faReact";
 import {faNodeJs} from "@fortawesome/free-brands-svg-icons/faNodeJs";
 import {faPython} from "@fortawesome/free-brands-svg-icons/faPython";
 import {faGitlab} from "@fortawesome/free-brands-svg-icons/faGitlab";
-import WeatherPortfolioModal from "@/app/portfolio/weather/page";
+import TodoModal from "@/app/portfolio/todo/page";
 
 
 export default function ResumeSection() {
+    const [modalOpen, setModalOpen] = useState(false);
+    const [todoModalOpen, setTodoModalOpen] = useState(false);
+
     return (
         <div>
             <div className={styles.header}>
@@ -156,46 +160,44 @@ export default function ResumeSection() {
             </SectionBox>
             <SectionBox title="포트폴리오" addClass={styles.portfolio}>
                 <div className={styles.collection}>
-                    {/* 포폴1 */}
-                    <div className={styles.card}>
-                        {/* <img src="/img.png" alt="" className={styles.cardImg} /> */}
+                    <div className={styles.card} onClick={() => setModalOpen(true)}>
+                        <img src="/images/preview_1.png" className={styles.cardImg}/>
                         <div className={styles.cardContent}>
-                            <h4>☀️ 포폴1</h4>
+                            <h4>☀️ 날씨 예보</h4>
                             <div className={styles.tags}>
                                 <span className={styles.pink}>Next.js</span>
                                 <span className={styles.blue}>TypeScript</span>
                             </div>
 
-                            <WeatherPortfolioModal />
                         </div>
                     </div>
+                    <WeatherModal isOpen={modalOpen} onClose={() => setModalOpen(false)}/>
 
-                    {/* 포폴2 */}
-                    <div className={styles.card}>
-                        {/*<img src="/img.png" alt="" className={styles.cardImg} />*/}
+                    <div className={styles.card} onClick={() => setTodoModalOpen(true)}>
+                        <img src="/images/preview_2.png" className={styles.cardImg}/>
                         <div className={styles.cardContent}>
-                            <h4>🖼 포폴2</h4>
+                            <h4>✅ To-do 리스트</h4>
                             <div className={styles.tags}>
                                 <span className={styles.pink}>Next.js</span>
                                 <span className={styles.blue}>TypeScript</span>
                             </div>
-                            {/*<a href="#" className={styles.link}>이동 →</a>*/}
                         </div>
                     </div>
+                    <TodoModal isOpen={todoModalOpen} onClose={() => setTodoModalOpen(false)}/>
                 </div>
             </SectionBox>
 
             <SectionBox title="학력 & 자격">
-            <div>
-                <p>🎓 한국폴리텍대학 서울강서캠퍼스 (2021 - 2023)</p>
-                <div className={styles.ml27}>정보보안과 전문학사 졸업</div>
-            </div>
-            <div className={styles.mt10}>
-                <p>📜 정보처리산업기사 - 한국산업인력공단</p>
-            </div>
-            <div className={styles.mt10}>
-                <p>📜 정보기기운용기능사 - 한국기술자격검정원</p>
-            </div>
+                <div>
+                    <p>🎓 한국폴리텍대학 서울강서캠퍼스 (2021 - 2023)</p>
+                    <div className={styles.ml27}>정보보안과 전문학사 졸업</div>
+                </div>
+                <div className={styles.mt10}>
+                    <p>📜 정보처리산업기사 - 한국산업인력공단</p>
+                </div>
+                <div className={styles.mt10}>
+                    <p>📜 정보기기운용기능사 - 한국기술자격검정원</p>
+                </div>
             </SectionBox>
             <SectionBox title="교육">
             <div className={styles.list}>

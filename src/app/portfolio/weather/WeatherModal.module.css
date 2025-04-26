@@ -1,57 +1,86 @@
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
+.weatherTable {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.weatherRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    background-color: var(--background);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.ls {
+    letter-spacing: -.8px;
+}
+
+.viewButtons {
+    display: flex;
+    gap: 8px;
+    margin: 1.5rem 0;
+}
+
+.viewButtons button {
+    color: var(--foreground);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s;
+    border: 1px solid var(--background);
+    padding: 0.5rem 1.2rem;
+    background-color: var(--background);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.viewButtons button:hover {
+    background-color: #90cdf4;
+}
+
+.viewButtons button.active {
+    border: none;
+    color: var(--background);
+    background: linear-gradient(135deg, #90cdf4, #63b3ed);
+}
+
+.left {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.link {
-    border: none;
-    cursor: pointer;
-    font-size: 13px;
-    text-decoration: none;
-    transition: color 0.2s;
-    color: var(--foreground);
-    background-color: var(--background);
-}
-
-.modal {
-    margin: auto;
-    padding: 2rem;
-    max-width: 600px;
-    position: relative;
-    border-radius: 12px;
-    background: var(--background);
-}
-
-.close {
-    top: 1rem;
-    right: 1rem;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    position: absolute;
-    background: transparent;
-    color: var(--foreground);
-}
-
-.weatherGrid {
-    gap: 1rem;
+.right {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
 }
 
-.weatherCard {
-    padding: 1rem;
-    min-width: 120px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+.weatherIcon {
+    padding: 5px;
+    font-size: 22px;
+}
+
+.dayInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.day {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.date {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.tempInfo {
+    font-weight: 500;
+    font-size: 14px;
 }
