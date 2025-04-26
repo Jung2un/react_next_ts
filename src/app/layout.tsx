@@ -21,8 +21,13 @@ export default function RootLayout({
         setIsDarkMode(newMode);
         localStorage.setItem("theme", newMode ? "dark" : "light");
 
-        document.documentElement.style.setProperty("--background", newMode ? "#f3f3f3" : "rgba(41, 42, 45, 0.87)");
-        document.documentElement.style.setProperty("--foreground", newMode ? "#1E1F21" : "#ededed");
+        if (!newMode) {
+            document.body.classList.add("dark");
+            document.body.classList.remove("light");
+        } else {
+            document.body.classList.add("light");
+            document.body.classList.remove("dark");
+        }
     };
 
     // 로컬 스토리지에서 다크모드 상태 불러오기
