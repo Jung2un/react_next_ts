@@ -29,6 +29,7 @@ const LeftMenu: React.FC<LeftMenuProps> = ({ isMenuOpen }) => {
             toast.success("이메일 주소가 복사되었습니다.");
             setTimeout(() => setCopied(false), 2000);
         } catch (err) {
+            console.error(err);
             toast.error("다시 시도해주세요.");
         }
     };

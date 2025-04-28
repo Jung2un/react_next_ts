@@ -4,7 +4,7 @@ interface WeatherData {
 }
 
 export function getWeatherStatus(data: WeatherData): string {
-    const { weather, clouds } = data;
+    const { weather } = data;
     const mainWeather = weather[0]?.main || '';
 
 

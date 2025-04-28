@@ -19,6 +19,17 @@ interface Forecast {
     weatherMain: string;
 }
 
+interface ForecastItem {
+    dt_txt: string;
+    main: {
+        temp_min: number;
+        temp_max: number;
+    };
+    weather: {
+        main: string;
+    }[];
+}
+
 interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
@@ -65,7 +76,7 @@ export default function WeatherModal(props: ModalProps) {
 
                 const dailyMap: { [date: string]: { temps: number[]; weatherMain?: string } } = {};
 
-                forecastData.list.forEach((item: any) => {
+                (forecastData.list as ForecastItem[]).forEach((item) => {
                     const date = item.dt_txt.split(' ')[0];
                     if (!dailyMap[date]) {
                         dailyMap[date] = { temps: [], weatherMain: item.weather[0]?.main };

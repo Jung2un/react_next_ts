@@ -7,7 +7,7 @@ export function getKoreanDayName(dateString: string) {
 
 // 날짜 포맷
 export function formatDate(dateString: string) {
-    const [year, month, day] = dateString.split('-');
+    const [, month, day] = dateString.split('-');
     return `${month}.${day}`;
 }
 

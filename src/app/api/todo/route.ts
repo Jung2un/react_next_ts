@@ -22,7 +22,8 @@ export async function POST(req: NextRequest) {
         todos.push(newTodo);
 
         return NextResponse.json(newTodo, { status: 201 });
-    } catch (error) {
+    } catch (err) {
+        console.error(err);
         return NextResponse.json({ error: '서버 에러' }, { status: 500 });
     }
 }
@@ -38,7 +39,8 @@ export async function DELETE(req: NextRequest) {
         todos = todos.filter(todo => todo.id !== Number(id));
 
         return new NextResponse(null, { status: 204 });
-    } catch (error) {
+    } catch (err) {
+        console.error(err);
         return NextResponse.json({ error: '서버 에러' }, { status: 500 });
     }
 }
