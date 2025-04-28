@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './ResumeSection.module.css';
+import styles from '../resume/ResumeSection.module.css';
 
 interface SectionBoxProps {
     title: string;

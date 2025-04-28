@@ -4,8 +4,8 @@ import Modal from 'react-modal';
 import styles from './TodoModal.module.css';
 import {useState, useEffect} from 'react';
 import useModalEffect from "@/hooks/useModalEffect";
-import TodoItem from '@/app/portfolio/todo/TodoItem';
-import TodoInput from '@/app/portfolio/todo/TodoInput';
+import TodoItem from '@/app/components/modal/TodoItem';
+import TodoInput from '@/app/components/modal/TodoInput';
 import modalStyles from '../../../styles/modal.module.css';
 
 interface Todo {
@@ -19,8 +19,7 @@ interface TodoModalProps {
     onClose: () => void;
 }
 
-export default function TodoModal(props: TodoModalProps) {
-    const {isOpen, onClose} = props;
+export default function TodoModal({ isOpen, onClose }: TodoModalProps) {
     const [todos, setTodos] = useState<Todo[]>([]);
 
     useModalEffect(isOpen);

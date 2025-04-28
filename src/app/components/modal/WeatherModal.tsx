@@ -35,8 +35,7 @@ interface ModalProps {
     onClose: () => void;
 }
 
-export default function WeatherModal(props: ModalProps) {
-    const { isOpen, onClose } = props;
+export default function WeatherModal({ isOpen, onClose }: ModalProps) {
     const [data, setData] = useState<Forecast[]>([]);
     const [city, setCity] = useState<string>('서울');
     const [viewMode, setViewMode] = useState<'table' | 'chart'>('table');

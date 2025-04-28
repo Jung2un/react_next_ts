@@ -1,8 +1,8 @@
 import "./globals.css";
 import layout from "./page.module.css";
 import { ToastContainer } from "react-toastify";
-import Header from "@/app/components/Header";
-import LeftMenu from "@/app/components/LeftMenu";
+import Header from "@/app/components/common/Header";
+import LeftMenu from "@/app/components/common/LeftMenu";
 import DarkModeProvider from "@/app/components/DarkModeProvider";
 
 export const metadata = {

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styles from './ResumeSection.module.css';
-import SectionBox from "@/app/components/SectionBox";
-import WeatherModal from "@/app/portfolio/weather/page";
+import SectionBox from "@/app/components/common/SectionBox";
+import WeatherModal from "@/app/components/modal/WeatherModal";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faJs} from "@fortawesome/free-brands-svg-icons/faJs";
 import {faFigma} from "@fortawesome/free-brands-svg-icons/faFigma";
@@ -9,7 +9,7 @@ import {faReact} from "@fortawesome/free-brands-svg-icons/faReact";
 import {faNodeJs} from "@fortawesome/free-brands-svg-icons/faNodeJs";
 import {faPython} from "@fortawesome/free-brands-svg-icons/faPython";
 import {faGitlab} from "@fortawesome/free-brands-svg-icons/faGitlab";
-import TodoModal from "@/app/portfolio/todo/page";
+import TodoModal from "@/app/components/modal/TodoModal";
 
 
 export default function ResumeSection() {

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import styles from "../../styles/layout.module.css";
+import styles from "../../../styles/layout.module.css";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useDarkMode } from "@/app/components/DarkModeProvider";

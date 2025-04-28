@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import ResumeSection from "@/app/components/ResumeSection";
-import ScrollToTopButton from "@/app/components/ScrollToTopButton";
+import ResumeSection from "@/app/components/resume/ResumeSection";
+import ScrollToTopButton from "@/app/components/common/ScrollToTopButton";
 
 const Home = () => {
     return (

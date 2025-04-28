@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import styles from "../../styles/layout.module.css";
+import styles from "../../../styles/layout.module.css";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { useScrollY } from "@/hooks/useScrollY";
 import { useDarkMode } from "@/app/components/DarkModeProvider";
