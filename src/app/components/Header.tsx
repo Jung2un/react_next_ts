@@ -1,17 +1,14 @@
-"use client";
+'use client';
 
 import React from 'react';
 import styles from "../../styles/layout.module.css";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { useScrollY } from "@/hooks/useScrollY";
+import { useDarkMode } from "@/app/components/DarkModeProvider";
 
-interface HeaderProps {
-    isDarkMode: boolean;
-    toggleDarkMode: () => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
+const Header: React.FC = () => {
     const scrollY = useScrollY();
+    const { isDarkMode, toggleDarkMode } = useDarkMode();
 
     return (
         <header className={`${styles.header} ${scrollY > 50 ? styles.scrolled : ""}`}>

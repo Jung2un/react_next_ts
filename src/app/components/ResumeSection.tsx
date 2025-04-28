@@ -19,8 +19,8 @@ export default function ResumeSection() {
     return (
         <div>
             <div className={styles.header}>
-                <h1>이정은</h1>
-                <p>Frontend Developer</p>
+                <h1 className={styles.roleTitle}>이정은</h1>
+                <p className={styles.roleText}>Frontend Developer</p>
             </div>
             <div className={styles.box}>
                 <span>💡</span>
@@ -60,7 +60,7 @@ export default function ResumeSection() {
                 <div className={styles.ml27}>
                     <ul>
                         <li>목표: 교육기관의 보안 진단 및 로그 분석을 위한 Windows 로그 수집 에이전트 개발</li>
-                        <li>성과</li>
+                        <li>주요 작업</li>
                         <ul className={styles.ml15}>
                             <li>
                                 시스템 로그 자동 수집 기능 구현 (Event Log, FileSystem, Registry)
@@ -77,7 +77,7 @@ export default function ResumeSection() {
                 <div className={styles.ml27}>
                     <ul>
                         <li>목표: 한국인터넷진흥원 개인정보 자율점검 서비스 구축</li>
-                        <li>성과</li>
+                        <li>주요 작업</li>
                         <ul className={styles.ml15}>
                             <li>관리자 기능: 자율점검표 관리, 점검 현황 API 연동 및 데이터 관리 기능 개발</li>
                             <li>사용자 기능: 자율점검 수행, 제출 내역 확인 및 모바일 반응형 UI 개발</li>
@@ -92,7 +92,7 @@ export default function ResumeSection() {
                 <div className={styles.ml27}>
                     <ul>
                         <li>목표: 개인정보를 포함한 문서 데이터에 대한 탐지 및 비식별화 처리 시스템 구축</li>
-                        <li>성과</li>
+                        <li>주요 작업</li>
                         <ul className={styles.ml15}>
                             <li>개인정보 탐지 및 비식별 처리 기능을 포함한 메인 서비스 화면 및 전체 UI 구성</li>
                             <li>입력 문장을 기반으로 API 연동하여 개인정보 탐지 및 비식별화 기능을 구현</li>
@@ -108,7 +108,7 @@ export default function ResumeSection() {
                     <div className={styles.ml27}>
                         <ul>
                             <li>목표: 문서 업로드/다운로드 기능 및 서브라벨링 UI 개발</li>
-                            <li>성과</li>
+                            <li>주요 작업</li>
                             <ul className={styles.ml15}>
                                 <li>멀티파일 업로드/다운로드 모달 및 API 연동 구현</li>
                                 <li>서브라벨링 기능 화면 개발 및 API 연동을 통한 라벨 관리 기능 구현</li>
