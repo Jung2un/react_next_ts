@@ -32,60 +32,40 @@ export default function WeatherModal(props: ModalProps) {
 
     useModalEffect(isOpen);
 
-    // location call
-    useEffect(() => {
-        const fetchLocation = async () => {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    async (position) => {
-                        const { latitude, longitude } = position.coords;
-                        try {
-                            const res = await fetch(
-                                `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&lang=kr`
-                            );
-                            const data = await res.json();
-                            if (data.name) {
-                                const koreanCity = Object.keys(cityKoreanToEnglish).find(
-                                    (kor) => cityKoreanToEnglish[kor] === data.name
-                                );
-                                setCity(koreanCity || '서울');
-                            }
-                        } catch (error) {
-                            console.error('위치 가져오기 실패', error);
-                            setCity('서울');
-                        }
-                    },
-                    (error) => {
-                        console.error('위치 허용 실패', error);
-                        setCity('서울');
-                    }
-                );
-            }
-        };
-
-        if (isOpen) {
-            fetchLocation();
+    const fetchWeatherData = async () => {
+        if (!navigator.geolocation) {
+            console.error('Geolocation 지원 안 됨');
+            return;
         }
-    }, [isOpen]);
 
-    // api call
-    useEffect(() => {
-        const fetchWeather = async () => {
-            const englishCity = cityKoreanToEnglish[city] || 'Seoul';
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const { latitude, longitude } = position.coords;
+
             try {
-                const res = await fetch(
-                    `https://api.openweathermap.org/data/2.5/forecast?q=${englishCity}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`
-                );
-                const json = await res.json();
+                // 현재 위치 기반 도시 이름 가져오기
+                const locationRes = await fetch(`/api/weather?lat=${latitude}&lon=${longitude}`);
+                const locationData = await locationRes.json();
 
-                if (!json.list) {
-                    console.error('날씨 데이터 없음', json);
+                const matchedCity = Object.keys(cityKoreanToEnglish).find(
+                    (kor) => cityKoreanToEnglish[kor] === locationData.name
+                );
+
+                const selectedCity = matchedCity || '서울';
+                setCity(selectedCity);
+
+                // 도시 이름으로 예보 가져오기
+                const forecastRes = await fetch(`/api/weather?q=${cityKoreanToEnglish[selectedCity] || 'Seoul'}`);
+                const forecastData = await forecastRes.json();
+
+                if (!forecastData.list) {
+                    console.error('날씨 예보 데이터 없음');
                     return;
                 }
 
+                // 날짜별 최고/최저 온도
                 const dailyMap: { [key: string]: { temps: number[]; weatherMain?: string } } = {};
 
-                json.list.forEach((item: any) => {
+                forecastData.list.forEach((item: any) => {
                     const date = item.dt_txt.split(' ')[0];
                     if (!dailyMap[date]) {
                         dailyMap[date] = { temps: [], weatherMain: item.weather[0]?.main };
@@ -107,14 +87,19 @@ export default function WeatherModal(props: ModalProps) {
 
                 setData(summary);
             } catch (error) {
-                console.error('날씨 가져오기 실패', error);
+                console.error('날씨 데이터 가져오기 실패', error);
             }
-        };
+        }, (error) => {
+            console.error('위치 허용 실패', error);
+            setCity('서울');
+        });
+    };
 
-        if (isOpen && city) {
-            fetchWeather();
+    useEffect(() => {
+        if (isOpen) {
+            fetchWeatherData();
         }
-    }, [isOpen, city]);
+    }, [isOpen]);
 
     const chartData = {
         labels: data.map(d => d.date),
