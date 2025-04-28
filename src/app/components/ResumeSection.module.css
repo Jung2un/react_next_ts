@@ -5,6 +5,17 @@
     flex-direction: column;
 }
 
+.roleTitle {
+    font-size: 1.7rem;
+}
+
+.roleText {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: -.3px;
+    font-family: 'Diphylleia', sans-serif;
+}
+
 .highlight {
     color: var(--foreground);
     font-weight: 600;
@@ -39,7 +50,7 @@
     gap: 8px;
     width: 100%;
     display: flex;
-    margin: 40px 0;
+    margin: 45px 0;
     line-height: 1.7;
     border-radius: 4px;
     padding: 16px 25px 16px 12px;
