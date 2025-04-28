@@ -1,4 +1,4 @@
-# [dev-archive](https://blog-eight-zeta-86.vercel.app/)
+# [dev-archive](https://j2-portfolio.vercel.app/)
 
 > **React + Next.js + TypeScript** 기반 개인 프로젝트 기록 사이트입니다.  
 > 다양한 미니 프로젝트를 모아 기록하고, 프론트엔드 기술 역량을 포트폴리오 형태로 정리했습니다.
