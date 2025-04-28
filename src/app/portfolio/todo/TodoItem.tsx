@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './todo.module.css';
+import styles from './TodoModal.module.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrash} from "@fortawesome/free-solid-svg-icons/faTrash";
 

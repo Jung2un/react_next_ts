@@ -4,11 +4,11 @@ import Modal from 'react-modal';
 import { Line } from 'react-chartjs-2';
 import { useEffect, useState } from 'react';
 import styles from './WeatherModal.module.css';
+import useModalEffect from "@/hooks/useModalEffect";
 import modalStyles from '../../../styles/modal.module.css';
 import { getWeatherStatus } from "@/utils/getWeatherStatus";
 import { formatDate, getKoreanDayName, cityKoreanToEnglish } from "@/utils/utils";
 import { Chart, LineController, LineElement, PointElement, LinearScale, Title, CategoryScale } from 'chart.js';
-import useModalEffect from "@/hooks/useModalEffect";
 
 Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale);
 
@@ -32,25 +32,26 @@ export default function WeatherModal(props: ModalProps) {
 
     useModalEffect(isOpen);
 
-    const fetchWeatherData = async () => {
-        if (!navigator.geolocation) {
-            console.error('Geolocation 지원 안 됨');
-            return;
-        }
+    useEffect(() => {
+        if (!isOpen) return;
 
-        navigator.geolocation.getCurrentPosition(async (position) => {
-            const { latitude, longitude } = position.coords;
-
+        const fetchWeatherData = async () => {
             try {
                 // 현재 위치 기반 도시 이름 가져오기
-                const locationRes = await fetch(`/api/weather?lat=${latitude}&lon=${longitude}`);
-                const locationData = await locationRes.json();
+                const position = await new Promise<GeolocationPosition>((resolve, reject) => {
+                    navigator.geolocation.getCurrentPosition(resolve, reject);
+                });
 
-                const matchedCity = Object.keys(cityKoreanToEnglish).find(
-                    (kor) => cityKoreanToEnglish[kor] === locationData.name
+                const { latitude, longitude } = position.coords;
+
+                const weatherRes = await fetch(`/api/weather?lat=${latitude}&lon=${longitude}`);
+                const weatherData = await weatherRes.json();
+
+                const koreanCity = Object.keys(cityKoreanToEnglish).find(
+                    (kor) => cityKoreanToEnglish[kor] === weatherData.name
                 );
 
-                const selectedCity = matchedCity || '서울';
+                const selectedCity = koreanCity || '서울';
                 setCity(selectedCity);
 
                 // 도시 이름으로 예보 가져오기
@@ -62,18 +63,14 @@ export default function WeatherModal(props: ModalProps) {
                     return;
                 }
 
-                // 날짜별 최고/최저 온도
-                const dailyMap: { [key: string]: { temps: number[]; weatherMain?: string } } = {};
+                const dailyMap: { [date: string]: { temps: number[]; weatherMain?: string } } = {};
 
                 forecastData.list.forEach((item: any) => {
                     const date = item.dt_txt.split(' ')[0];
                     if (!dailyMap[date]) {
                         dailyMap[date] = { temps: [], weatherMain: item.weather[0]?.main };
                     }
-                    dailyMap[date].temps.push(
-                        Math.floor(item.main.temp_min),
-                        Math.floor(item.main.temp_max)
-                    );
+                    dailyMap[date].temps.push(Math.floor(item.main.temp_min), Math.floor(item.main.temp_max));
                 });
 
                 const summary = Object.entries(dailyMap)
@@ -88,31 +85,25 @@ export default function WeatherModal(props: ModalProps) {
                 setData(summary);
             } catch (error) {
                 console.error('날씨 데이터 가져오기 실패', error);
+                setCity('서울');
             }
-        }, (error) => {
-            console.error('위치 허용 실패', error);
-            setCity('서울');
-        });
-    };
+        };
 
-    useEffect(() => {
-        if (isOpen) {
-            fetchWeatherData();
-        }
+        fetchWeatherData();
     }, [isOpen]);
 
     const chartData = {
-        labels: data.map(d => d.date),
+        labels: data.map((d) => d.date),
         datasets: [
             {
                 label: '최고기온',
-                data: data.map(d => d.max),
+                data: data.map((d) => d.max),
                 borderColor: 'rgba(255,99,132,1)',
                 backgroundColor: 'rgba(255,99,132,0.2)',
             },
             {
                 label: '최저기온',
-                data: data.map(d => d.min),
+                data: data.map((d) => d.min),
                 borderColor: 'rgba(54,162,235,1)',
                 backgroundColor: 'rgba(54,162,235,0.2)',
             },
@@ -125,8 +116,8 @@ export default function WeatherModal(props: ModalProps) {
             className={modalStyles.modal}
             overlayClassName={modalStyles.overlay}
             onRequestClose={onClose}
-            shouldCloseOnEsc={false}
-            shouldCloseOnOverlayClick={false}
+            shouldCloseOnEsc
+            shouldCloseOnOverlayClick
         >
             <h2 className={styles.ls}>🌈 {city} 날씨 예보</h2>
 
@@ -157,15 +148,14 @@ export default function WeatherModal(props: ModalProps) {
                                     <span className={styles.date}>{formatDate(d.date)}</span>
                                 </div>
                             </div>
-
                             <div className={styles.right}>
                                 <div className={styles.tempInfo}>
                                     <span>{d.min}° / {d.max}°</span>
                                 </div>
                                 <div className={styles.weatherIcon}>
                                     {getWeatherStatus({
-                                        weather: [{main: d.weatherMain, description: ''}],
-                                        clouds: {all: 0}
+                                        weather: [{ main: d.weatherMain, description: '' }],
+                                        clouds: { all: 0 },
                                     })}
                                 </div>
                             </div>
@@ -174,7 +164,7 @@ export default function WeatherModal(props: ModalProps) {
                 </div>
             ) : (
                 <div className={styles.chartContainer}>
-                    <Line data={chartData}/>
+                    <Line data={chartData} />
                 </div>
             )}
         </Modal>

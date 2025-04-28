@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './todo.module.css';
+import styles from './TodoModal.module.css';
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons/faPlus";
