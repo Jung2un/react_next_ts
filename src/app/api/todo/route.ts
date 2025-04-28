@@ -5,7 +5,8 @@ let todos: { id: number; task: string }[] = [];
 export async function GET() {
     try {
         return NextResponse.json(todos);
-    } catch (error) {
+    } catch (err) {
+        console.error(err);
         return NextResponse.json({ error: '서버 에러' }, { status: 500 });
     }
 }
