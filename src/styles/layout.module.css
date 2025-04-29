@@ -16,13 +16,13 @@
 }
 
 .dark {
-    background-color: #1e1f21;
     color: #ededed;
+    background-color: #1e1f21;
 }
 
 .light {
-    background-image: linear-gradient(to left, #d1ddff, #a8a4b9);
     color: #171717;
+    background: linear-gradient(to left, #d1ddff, #a8a4b9);
 }
 
 .menuList {
@@ -65,21 +65,66 @@
 }
 
 .header {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 900;
     height: 60px;
-    padding: 0 20px;
+    z-index: 900;
     display: flex;
-    position: fixed;
+    padding: 0 20px;
     align-items: center;
-    justify-content: flex-end;
     backdrop-filter: blur(5px);
     background-color: var(--background);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /*transition: background 0.3s, box-shadow 0.3s;*/
+}
 
+.navArea {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.headerNav {
+    display: flex;
+    gap: 12px;
+    max-width: 720px;
+    width: 100%;
+    visibility: hidden;
+}
+
+
+@media (min-width: 290px) and (max-width: 434px) {
+    .headerNav {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 435px) {
+    .headerNav {
+        max-width: 720px;
+    }
+}
+
+.headerNav li {
+    flex: 1;
+    list-style: none;
+    text-align: center;
+}
+
+.headerNav li a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media (max-width: 968px) {
+    .headerNav {
+        visibility: visible;
+    }
 }
 
 .scrolled {
