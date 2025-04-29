@@ -1,0 +1,221 @@
+.leftMenu {
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    padding: 20px;
+    z-index: 1000;
+    color: white;
+    display: flex;
+    position: fixed;
+    text-align: center;
+    flex-direction: column;
+    background-color: #1e1f21;
+    justify-content: flex-start;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.dark {
+    color: #ededed;
+    background-color: #1e1f21;
+}
+
+.light {
+    color: #171717;
+    background: linear-gradient(to left, #d1ddff, #a8a4b9);
+}
+
+.menuList {
+    padding: 0;
+    list-style-type: none;
+}
+
+.menuList li {
+    margin: 25px 0;
+    font-size: 18px;
+}
+
+.menuList li a {
+    display: block;
+    padding: 8px 0;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--foreground);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 968px) {
+    .leftMenu {
+        width: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .leftMenu.open {
+        width: 200px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .leftMenu {
+        width: 0;
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 900;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    background-color: var(--background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navArea {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.headerNav {
+    display: flex;
+    gap: 12px;
+    max-width: 720px;
+    width: 100%;
+    visibility: hidden;
+}
+
+
+@media (min-width: 290px) and (max-width: 434px) {
+    .headerNav {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 435px) {
+    .headerNav {
+        max-width: 720px;
+    }
+}
+
+.headerNav li {
+    flex: 1;
+    list-style: none;
+    text-align: center;
+}
+
+.headerNav li a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media (max-width: 968px) {
+    .headerNav {
+        visibility: visible;
+    }
+}
+
+.scrolled {
+    background-color: var(--background);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.themeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.themeToggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+}
+
+.introSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+
+.nameSection {
+    display: flex;
+    place-items: center;
+}
+
+.profileImage {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.profileTitle {
+    margin: 0 0 0 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contactInfo {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contactButton {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.emailText {
+    position: absolute;
+    top: -20px;
+    left: 120%;
+    z-index: 10;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    background-color: #444;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.emailText::after {
+    content: "";
+    position: absolute;
+    top: 95%;
+    left: -3px;
+    transform: translateY(-50%) rotate(-45deg);
+    width: 10px;
+    height: 10px;
+    background-color: #444;
+    clip-path: polygon(0 50%, 80% 0, 100% 100%);
+}
