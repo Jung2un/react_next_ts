@@ -2,7 +2,7 @@
 
 import Modal from 'react-modal';
 import styles from './TodoModal.module.css';
-import {useState, useEffect, useCallback} from 'react';
+import {useState, useEffect} from 'react';
 import useModalEffect from "@/hooks/useModalEffect";
 import TodoItem from '@/app/components/modal/TodoItem';
 import TodoInput from '@/app/components/modal/TodoInput';
