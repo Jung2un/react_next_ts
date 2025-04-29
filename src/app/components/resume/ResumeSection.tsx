@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { Diphylleia } from 'next/font/google';
 import styles from './ResumeSection.module.css';
 import SectionBox from "@/app/components/common/SectionBox";
 import WeatherModal from "@/app/components/modal/WeatherModal";
@@ -11,6 +13,12 @@ import {faNodeJs} from "@fortawesome/free-brands-svg-icons/faNodeJs";
 import {faPython} from "@fortawesome/free-brands-svg-icons/faPython";
 import {faGitlab} from "@fortawesome/free-brands-svg-icons/faGitlab";
 import TodoModal from "@/app/components/modal/TodoModal";
+
+const diphylleia = Diphylleia({
+    weight: '400',
+    subsets: ['latin'],
+    display: 'swap',
+});
 
 
 export default function ResumeSection() {
@@ -29,7 +37,7 @@ export default function ResumeSection() {
                 navigator.geolocation.getCurrentPosition(resolve, reject);
             });
             setModalOpen(true);
-        } catch (error) {
+        } catch {
             toast.error(
                 <div>
                     위치 권한이 거부되었습니다.<br />
@@ -43,7 +51,7 @@ export default function ResumeSection() {
         <div>
             <div className={styles.header}>
                 <h1 className={styles.roleTitle}>이정은</h1>
-                <p className={styles.roleText}>Frontend Developer</p>
+                <p className={`${styles.roleText} ${diphylleia.className}`}>Frontend Developer</p>
             </div>
             <div className={styles.box}>
                 <span>💡</span>
@@ -148,7 +156,7 @@ export default function ResumeSection() {
                 <div className={styles.stack}>
                     <span className={styles.spanBox}><FontAwesomeIcon icon={faJs}/> JavaScript</span>
                     <span className={styles.spanBox}>
-                      <img src="/images/ts.png" width="20" alt="TypeScript"/> TypeScript
+                        <Image src="/images/ts.png" alt="TypeScript" width={20} height={20}/> TypeScript
                     </span>
                     <span className={styles.spanBox}><FontAwesomeIcon icon={faPython}/> Python</span>
                 </div>
@@ -160,11 +168,11 @@ export default function ResumeSection() {
                 <div className={styles.stack}>
                     <span className={styles.spanBox}><FontAwesomeIcon icon={faReact}/> React</span>
                     <span className={styles.spanBox}>
-                      <img src="/images/next.png" width="16" alt="Next.js"/> Next.js
+                        <Image src="/images/next.png" alt="Next.js" width={16} height={16}/> Next.js
                     </span>
                     <span className={styles.spanBox}><FontAwesomeIcon icon={faNodeJs}/> Node.js</span>
                     <span className={styles.spanBox}>
-                      <img src="/images/tailwind.svg" width="16" alt="Tailwind"/> Tailwind
+                      <Image src="/images/tailwind.svg" alt="Tailwind" width={16} height={16}/> Tailwind
                     </span>
                 </div>
             </div>
@@ -175,7 +183,7 @@ export default function ResumeSection() {
                 <div className={styles.stack}>
                     <span className={styles.spanBox}><FontAwesomeIcon icon={faGitlab}/> GitLab</span>
                     <span className={styles.spanBox}>
-                      <img src="/images/postman.svg" width="16" alt="Postman"/> Postman
+                      <Image src="/images/postman.svg" alt="Postman" width={16} height={16}/> Postman
                     </span>
                     <span className={styles.spanBox}><FontAwesomeIcon icon={faFigma}/> Figma</span>
                 </div>
@@ -184,7 +192,14 @@ export default function ResumeSection() {
             <SectionBox title="포트폴리오" addClass={styles.portfolio}>
                 <div className={styles.collection}>
                     <div className={styles.card} onClick={handleWeatherClick}>
-                        <img src="/images/preview_1.png" className={styles.cardImg}/>
+                        <Image
+                            src="/images/preview_1.png"
+                            alt="Weather preview"
+                            width={300}
+                            height={200}
+                            loading="lazy"
+                            className={styles.cardImg}
+                        />
                         <div className={styles.cardContent}>
                             <h4>☀️ 날씨 예보</h4>
                             <div className={styles.tags}>
@@ -197,7 +212,14 @@ export default function ResumeSection() {
                     <WeatherModal isOpen={modalOpen} onClose={() => setModalOpen(false)}/>
 
                     <div className={styles.card} onClick={() => setTodoModalOpen(true)}>
-                        <img src="/images/preview_2.png" className={styles.cardImg}/>
+                        <Image
+                            src="/images/preview_2.png"
+                            alt="Todo preview"
+                            width={300}
+                            height={200}
+                            loading="lazy"
+                            className={styles.cardImg}
+                        />
                         <div className={styles.cardContent}>
                             <h4>✅ To-do 리스트</h4>
                             <div className={styles.tags}>

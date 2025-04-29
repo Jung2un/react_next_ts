@@ -2,7 +2,7 @@
 
 import Modal from 'react-modal';
 import styles from './TodoModal.module.css';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import useModalEffect from "@/hooks/useModalEffect";
 import TodoItem from '@/app/components/modal/TodoItem';
 import TodoInput from '@/app/components/modal/TodoInput';
@@ -24,27 +24,32 @@ export default function TodoModal({ isOpen, onClose }: TodoModalProps) {
 
     useModalEffect(isOpen);
 
+    useEffect(() => {
+        if (isOpen) {
+            (async () => {
+                if (typeof window === 'undefined') return;
+
+                const saved = localStorage.getItem('todos');
+                if (saved) {
+                    updateTodos(JSON.parse(saved));
+                } else {
+                    try {
+                        const res = await fetch('/api/todo');
+                        const data = await res.json();
+                        updateTodos(data);
+                    } catch (error) {
+                        console.error('할 일 목록 가져오기 실패', error);
+                    }
+                }
+            })();
+        }
+    }, [isOpen]);
+
+
     const updateTodos = (newTodos: Todo[]) => {
         setTodos(newTodos);
         if (typeof window !== 'undefined') {
             localStorage.setItem('todos', JSON.stringify(newTodos));
-        }
-    };
-
-    const fetchTodos = async () => {
-        if (typeof window === 'undefined') return;
-
-        const saved = localStorage.getItem('todos');
-        if (saved) {
-            updateTodos(JSON.parse(saved));
-        } else {
-            try {
-                const res = await fetch('/api/todo');
-                const data = await res.json();
-                updateTodos(data);
-            } catch (error) {
-                console.error('할 일 목록 가져오기 실패', error);
-            }
         }
     };
 
@@ -77,12 +82,6 @@ export default function TodoModal({ isOpen, onClose }: TodoModalProps) {
         );
         updateTodos(updated);
     };
-
-    useEffect(() => {
-        if (isOpen) {
-            fetchTodos();
-        }
-    }, [isOpen]);
 
     return (
         <Modal

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "../../../styles/layout.module.css";
@@ -37,9 +38,12 @@ const LeftMenu: React.FC<LeftMenuProps> = ({ isMenuOpen }) => {
     return (
         <div className={`${styles.leftMenu} ${isMenuOpen ? styles.open : ""} ${isDarkMode ? styles.dark : styles.light}`}>
             <div className={styles.introSection}>
-                <img
+                <Image
                     src="https://avatars.githubusercontent.com/u/122095401?v=4"
-                    alt="Profile Img"
+                    alt="프로필 이미지"
+                    priority
+                    width={100}
+                    height={100}
                     className={styles.profileImage}
                 />
                 <div className={styles.nameSection}>
