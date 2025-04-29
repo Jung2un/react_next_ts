@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 import styles from './ResumeSection.module.css';
 import SectionBox from "@/app/components/common/SectionBox";
 import WeatherModal from "@/app/components/modal/WeatherModal";
@@ -14,7 +15,29 @@ import TodoModal from "@/app/components/modal/TodoModal";
 
 export default function ResumeSection() {
     const [modalOpen, setModalOpen] = useState(false);
+    const [isClickable, setIsClickable] = useState(true);
     const [todoModalOpen, setTodoModalOpen] = useState(false);
+
+    const handleWeatherClick = async () => {
+        if (!isClickable) return;
+
+        setIsClickable(false);
+        setTimeout(() => setIsClickable(true), 1800);
+
+        try {
+            await new Promise<GeolocationPosition>((resolve, reject) => {
+                navigator.geolocation.getCurrentPosition(resolve, reject);
+            });
+            setModalOpen(true);
+        } catch (error) {
+            toast.error(
+                <div>
+                    위치 권한이 거부되었습니다.<br />
+                    브라우저 설정에서 허용해주세요.
+                </div>
+            );
+        }
+    };
 
     return (
         <div>
@@ -160,7 +183,7 @@ export default function ResumeSection() {
             </SectionBox>
             <SectionBox title="포트폴리오" addClass={styles.portfolio}>
                 <div className={styles.collection}>
-                    <div className={styles.card} onClick={() => setModalOpen(true)}>
+                    <div className={styles.card} onClick={handleWeatherClick}>
                         <img src="/images/preview_1.png" className={styles.cardImg}/>
                         <div className={styles.cardContent}>
                             <h4>☀️ 날씨 예보</h4>

@@ -123,11 +123,11 @@ export default function WeatherModal({ isOpen, onClose }: ModalProps) {
     return (
         <Modal
             isOpen={isOpen}
+            onRequestClose={onClose}
             className={modalStyles.modal}
             overlayClassName={modalStyles.overlay}
-            onRequestClose={onClose}
-            shouldCloseOnEsc
-            shouldCloseOnOverlayClick
+            shouldCloseOnEsc={false}
+            shouldCloseOnOverlayClick={false}
         >
             <h2 className={styles.ls}>🌈 {city} 날씨 예보</h2>
 

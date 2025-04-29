@@ -90,23 +90,30 @@ export default function TodoModal({ isOpen, onClose }: TodoModalProps) {
             className={modalStyles.modal}
             overlayClassName={modalStyles.overlay}
             onRequestClose={onClose}
-            shouldCloseOnEsc
-            shouldCloseOnOverlayClick
+            shouldCloseOnEsc={false}
+            shouldCloseOnOverlayClick={false}
         >
             <h2 className={styles.ls}>📝 체크 리스트</h2>
             <button onClick={onClose} className={modalStyles.close}>✖</button>
 
-            <TodoInput addTodo={addTodo} />
+            <TodoInput addTodo={addTodo}/>
             <ul className={styles.todoList}>
-                {todos.map(todo => (
-                    <TodoItem
-                        key={todo.id}
-                        todo={todo}
-                        deleteTodo={deleteTodo}
-                        toggleComplete={toggleComplete}
-                    />
-                ))}
+                {todos.length === 0 ? (
+                    <li className={styles.empty}>
+                        할 일을 간단히 정리해보세요 🔥
+                    </li>
+                ) : (
+                    todos.map(todo => (
+                        <TodoItem
+                            key={todo.id}
+                            todo={todo}
+                            deleteTodo={deleteTodo}
+                            toggleComplete={toggleComplete}
+                        />
+                    ))
+                )}
             </ul>
+
         </Modal>
     );
 }

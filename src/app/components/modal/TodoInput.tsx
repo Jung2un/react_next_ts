@@ -33,9 +33,9 @@ export default function TodoInput({ addTodo }: TodoInputProps) {
             <input
                 type="text"
                 value={task}
+                placeholder="입력"
                 className={styles.input}
                 onKeyDown={handleKeyDown}
-                placeholder="할 일을 입력하세요"
                 onChange={(e) => setTask(e.target.value)}
             />
             <FontAwesomeIcon
